@@ -167,9 +167,7 @@ var finances = [
 
    }
 
-   console.log("line 4 " + `$(increaseInProfitDate)` & " " & `$(totalProfitIncrease)`);
-   console.log("line 5 " + `$(decreaseInProfitDate)` & " " & `$(totalProfitDecrease)`);
-   
+  
    for (var i=0; i<finances.length;i++)
    {
       if (i ===0 )
