@@ -111,46 +111,79 @@ var finances = [
   // const declare Average Change text in line3
   const line3 =  "Average Change: ";
  
+  // const declare Greatest Increase in Profits/Losses:
+  const line4 ="Greatest Increase in Profits/Losses:"
+
+  // const declare Greatest Increase in Profits/Losses:
+  const line5 ="Greatest Decrease in Profits/Losses:"
 
   var totalMonths= 0;
   var Amount =0;
   var totalAmount=0;
   var avgChange =0;
 
-  // declare totalProfit=0;
-  // declare totalLoss =0;
   var totalProfit = 0;
   var totalLoss = 0;
 
   //find totalMonths from the array length
   totalMonths = finances.length;
  
-  
-  var greatestIncrease =0;
-  var greatestDecrease = 0;
-
+  var increaseInProfitDate;
+  var decreaseInProfitDate;
+  var increaseInProfit=0;
+  var decreaseInProfit=0;
+  var currentMonthProfit=0;
+  var prevMonthProfit=0;
+  var totalProfitDecrease =0;
+  var totalProfitIncrease =0;
   var tempAmt=0;
   
-  
+  prevMonthProfit = finances[0][1];
+  increaseInProfit = finances[0][1];
+  decreaseInProfit = finances[0][1];
+  netProfit = finances[0][1];
+
   for (var i=0; i<finances.length;i++)
   { 
      Amount += +finances[i][1];
-      
   }
 
-  for (var i=0; i<finances.length;i++)
+  for (var i=1; i<finances.length;i++)
   { 
-     if (i === 0)
+     currentMonthProfit = finances[i][1]
+     
+     if (currentMonthProfit > increaseInProfit)
       {
-         totalProfit = finances[i][1];  
+           increaseInProfitDate = finances[i][0];
+           increaseInProfit = finances[i][1];
+           totalProfitIncrease = finances[i-1][1] - finances[i][1];
+     }
+     else if (currentMonthProfit < decreaseInProfit) 
+      {
+         decreaseInProfitDate = finances[i][0]; 
+         decreaseInProfit = finances[i][1];
+         totalProfitDecrease = finances[i-1][1]- finances[i][1];
+      }
+
+   }
+
+   console.log("line 4 " + `$(increaseInProfitDate)` & " " & `$(totalProfitIncrease)`);
+   console.log("line 5 " + `$(decreaseInProfitDate)` & " " & `$(totalProfitDecrease)`);
+   
+   for (var i=0; i<finances.length;i++)
+   {
+      if (i ===0 )
+      {
+         totalProfit = finances[i][1];
       }
      else if (totalProfit >= finances[i][1] && i > 0)
       {
-            tempAmt =   finances[i][1] - totalProfit;   
+            tempAmt =   finances[i][1] - totalProfit; 
+            
       }
      else if (totalProfit <= finances[i][1] && i > 0)
       {
-            tempAmt = totalProfit - finances[i][1];
+            tempAmt = totalProfit - finances[i][1]
       }
      else if (totalProfit = finances[i][1] && i > 0)
       {
@@ -164,7 +197,9 @@ var finances = [
   }
 avgChange = (tempAmt / (totalMonths-1)).toFixed(2);
 
-  console.log(title + '\n' + dash + '\n' + line1 + ": " + totalMonths + '\n' + line2 + "$" +Amount + '\n' +line3 + avgChange);
-  
-  
+console.log("line 4 " + increaseInProfitDate & " " & totalProfitIncrease);
+console.log("line 5 " + decreaseInProfitDate & " " & totalProfitDecrease);
+
+
+console.log(title + '\n' + dash + '\n' + line1 + ": " + totalMonths + '\n' + line2 + "$" +Amount + '\n' +line3 + avgChange + '\n' + line4 + `$(increaseInProfitDate)` & " " & `$(totalProfitIncrease)` + '\n' + line5 +`$(decreaseInProfitDate)` & " " & `$(totalProfitDecrease)`);
 
