@@ -2,7 +2,9 @@
 /*
 1. The total number of months included in the dataset.Calculate the length of the array
 for the given period.
-2. 
+2. The net total amount of Profit/Losses over the entire period is to add all the  profit and loss amount in the array
+3. The average of the **changes** in Profit/Losses over the entire period.
+   Track what the total change in Profit/Losses are from month to month and then find the average.
 
 */
 
@@ -97,16 +99,42 @@ var finances = [
   
   //declare the output text in variables
 
-  var title= "Financial Analysis"
-  var dash = "------------------"
-  // declare total number of months text in line1
+  const title= "Financial Analysis";
+  const dash = "------------------";
+  // const declare total number of months text in line1
 
-  var line1 = "The total number of months included in the dataset";
+  const line1 = "The total number of months included in the dataset";
   
-  // declare net total amount of Profit/Losses text in line2
-  var line2 = "The net total amount of Profit/Losses over the entire period.";
-
-
-  var totalMonths =  finances.length-1;
+   // const declare Total text in line2
+  const line2 = "Total: ";
  
-  console.log(title + '\n' + dash + '\n' + line1 + ": " + totalMonths + '\n');
+  // const declare Average Change text in line3
+  const line3 =  "Average Change: ";
+ 
+
+  var totalMonths= 0;
+  var Amount =0;
+
+  // declare totalProfit=0;
+  // declare totalLoss =0;
+  var totalProfit = 0;
+  var totalLoss = 0;
+
+  //find totalMonths from the array length
+  totalMonths = finances.length;
+ 
+  
+  var greatestIncrease =0;
+  var greatestDecrease = 0;
+
+  
+  
+  for (var i=0; i<finances.length;i++)
+  { 
+     Amount += +finances[i][1];
+      
+  }
+
+  console.log(title + '\n' + dash + '\n' + line1 + ": " + totalMonths + '\n' + line2 + "$" +Amount);
+  
+
