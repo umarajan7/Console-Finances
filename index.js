@@ -128,8 +128,8 @@ var finances = [
   //find totalMonths from the array length
   totalMonths = finances.length;
  
-  var increaseInProfitDate;
-  var decreaseInProfitDate;
+  var increaseInProfitDate = '';
+  var decreaseInProfitDate= '';
   var increaseInProfit=0;
   var decreaseInProfit=0;
   var currentMonthProfit=0;
@@ -138,10 +138,10 @@ var finances = [
   var totalProfitIncrease =0;
   var tempAmt=0;
   
-  prevMonthProfit = finances[0][1];
-  increaseInProfit = finances[0][1];
-  decreaseInProfit = finances[0][1];
-  netProfit = finances[0][1];
+  prevMonthProfit = finances[0][1]
+  increaseInProfit = finances[0][1]
+  decreaseInProfit = finances[0][1]
+  netProfit = finances[0][1]
 
   for (var i=0; i<finances.length;i++)
   { 
@@ -196,10 +196,6 @@ var finances = [
      }
   }
 avgChange = (tempAmt / (totalMonths-1)).toFixed(2);
-
-console.log("line 4 " + increaseInProfitDate & " " & totalProfitIncrease);
-console.log("line 5 " + decreaseInProfitDate & " " & totalProfitDecrease);
-
 
 console.log(title + '\n' + dash + '\n' + line1 + ": " + totalMonths + '\n' + line2 + "$" +Amount + '\n' +line3 + avgChange + '\n' + line4 + `$(increaseInProfitDate)` & " " & `$(totalProfitIncrease)` + '\n' + line5 +`$(decreaseInProfitDate)` & " " & `$(totalProfitDecrease)`);
 
