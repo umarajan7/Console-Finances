@@ -1,5 +1,9 @@
 # Console-Finances
+<<<<<<< HEAD
 ### Javascript - This is the repository for the Console-Finances
+=======
+### Javascript - This is the repository for the Console-Finances
+>>>>>>> 22306819be22eabae752c93c3f859e41dbbaef4a
 
 ## Tasks
 
@@ -29,4 +33,8 @@
 ####  Greatest Decrease in Profits/Losses: Sep-2013 ($-2196167)
 ####  ```
 
+<<<<<<< HEAD
+#### Your final code should print the analysis to the console.
+=======
 Your final code should print the analysis to the console.
+>>>>>>> 22306819be22eabae752c93c3f859e41dbbaef4a
