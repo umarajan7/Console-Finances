@@ -112,10 +112,10 @@ var finances = [
   const line3 =  "Average Change: ";
  
   // const declare Greatest Increase in Profits/Losses:
-  const line4 ="Greatest Increase in Profits/Losses:"
+  const line4 ="Greatest Increase in Profits/Losses: "
 
   // const declare Greatest Increase in Profits/Losses:
-  const line5 ="Greatest Decrease in Profits/Losses:"
+  const line5 ="Greatest Decrease in Profits/Losses: "
 
   var totalMonths= 0;
   var Amount =0;
@@ -128,8 +128,8 @@ var finances = [
   //find totalMonths from the array length
   totalMonths = finances.length;
  
-  var increaseInProfitDate = '';
-  var decreaseInProfitDate= '';
+  var increaseInProfitDate;
+  var decreaseInProfitDate;
   var increaseInProfit=0;
   var decreaseInProfit=0;
   var currentMonthProfit=0;
@@ -138,10 +138,10 @@ var finances = [
   var totalProfitIncrease =0;
   var tempAmt=0;
   
-  prevMonthProfit = finances[0][1]
-  increaseInProfit = finances[0][1]
-  decreaseInProfit = finances[0][1]
-  netProfit = finances[0][1]
+  prevMonthProfit = finances[0][1];
+  increaseInProfit = finances[0][1];
+  decreaseInProfit = finances[0][1];
+  netProfit = finances[0][1];
 
   for (var i=0; i<finances.length;i++)
   { 
@@ -156,13 +156,13 @@ var finances = [
       {
            increaseInProfitDate = finances[i][0];
            increaseInProfit = finances[i][1];
-           totalProfitIncrease = finances[i-1][1] - finances[i][1];
+           totalProfitIncrease = finances[i][1] - finances[i-1][1] ;
      }
      else if (currentMonthProfit < decreaseInProfit) 
       {
          decreaseInProfitDate = finances[i][0]; 
          decreaseInProfit = finances[i][1];
-         totalProfitDecrease = finances[i-1][1]- finances[i][1];
+         totalProfitDecrease = finances[i][1] -finances[i-1][1] ;
       }
 
    }
@@ -170,7 +170,7 @@ var finances = [
   
    for (var i=0; i<finances.length;i++)
    {
-      if (i ===0 )
+      if (i === 0 )
       {
          totalProfit = finances[i][1];
       }
@@ -195,5 +195,11 @@ var finances = [
   }
 avgChange = (tempAmt / (totalMonths-1)).toFixed(2);
 
-console.log(title + '\n' + dash + '\n' + line1 + ": " + totalMonths + '\n' + line2 + "$" +Amount + '\n' +line3 + avgChange + '\n' + line4 + `$(increaseInProfitDate)` & " " & `$(totalProfitIncrease)` + '\n' + line5 +`$(decreaseInProfitDate)` & " " & `$(totalProfitDecrease)`);
+console.log(title + '\n' );
+console.log(dash + '\n' );
+console.log(line1 + ": " + totalMonths + '\n' );
+console.log(line2 + "$" +Amount + '\n' );
+console.log(line3 + avgChange + '\n' );
+console.log(line4 + increaseInProfitDate + " " + '($' + totalProfitIncrease + ')' + '\n' );
+console.log(line5 + decreaseInProfitDate + " " +  '($' + totalProfitDecrease +')');
 
